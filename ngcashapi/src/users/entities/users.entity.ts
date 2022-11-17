@@ -1,4 +1,4 @@
-import { IsNotEmpty, Max, MaxLength } from "class-validator";
+import { IsNotEmpty, Max, MaxLength, MinLength } from "class-validator";
 import { Accounts } from "src/accounts/entities/accounts.entity";
 import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
 
@@ -10,11 +10,13 @@ export class Users{
 
     @IsNotEmpty()
     @MaxLength(255)
-    @Column({nullable: false, length: 255})
+    @MinLength(3)
+    @Column({nullable: false, length: 255, unique: true})
     username: string
 
     @IsNotEmpty()
     @MaxLength(255)
+    @MinLength(8)
     @Column({nullable: false, length: 255})
     senha: string
 

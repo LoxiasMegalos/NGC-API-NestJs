@@ -1,5 +1,11 @@
+
+
 import { IsNotEmpty, Max, MaxLength } from "class-validator";
+import moment from "moment";
+import { Transform } from 'class-transformer';
+
 import { Accounts } from "src/accounts/entities/accounts.entity";
+
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'transactions_tb'})
@@ -13,8 +19,8 @@ export class Transactions {
     value: number
 
     @IsNotEmpty()
-    @Column({nullable: false})
-    createdAt: Date
+    @Column({nullable: false, type: 'date'})
+    createdAt: string
 
     @ManyToOne(() => Accounts, (debitedAccountId) => debitedAccountId.transacoesDebitadas, {
         onDelete: "CASCADE"

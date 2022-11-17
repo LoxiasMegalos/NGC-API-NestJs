@@ -7,7 +7,10 @@ async function bootstrap() {
 
   process.env.TZ = '-03:00'
   app.useGlobalPipes(new ValidationPipe())
-  app.enableCors()
+  app.enableCors({
+    origin: 'http://localhost:3000',
+    credentials: true
+  })
   
   await app.listen(3000);
 }
