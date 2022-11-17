@@ -12,7 +12,7 @@ import { Users } from './users/entities/users.entity';
 import { UsersModule } from './users/modules/users.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
+  imports: [/*TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
@@ -21,7 +21,7 @@ import { UsersModule } from './users/modules/users.module';
     database: 'ngcash_db',
     entities: [Accounts, Users, Transactions],
     synchronize: true
-  })/*
+  })*/
   TypeOrmModule.forRoot({
     type: 'postgres',
     url: process.env.DATABASE_URL,
@@ -32,7 +32,7 @@ import { UsersModule } from './users/modules/users.module';
     },
     autoLoadEntities: true,
     synchronize: true
-  })*/,
+  }),
   UsersModule,
   AccountsModule,
   TransactionsModule,

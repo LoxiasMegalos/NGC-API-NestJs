@@ -1,4 +1,5 @@
 import { Controller, Post, Request, UseGuards } from "@nestjs/common";
+import { CadastroNovoUsuarioDTO } from "src/users/model/cadastronovousuariodto";
 import { AuthService } from "./shared/auth.service";
 import { LocalAuthGuard } from "./shared/local-auth.guard";
 

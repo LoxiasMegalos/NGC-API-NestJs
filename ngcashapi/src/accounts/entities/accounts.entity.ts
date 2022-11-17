@@ -19,7 +19,7 @@ export class Accounts{
     @OneToMany(() => Transactions, (transactionId) => transactionId.debitedAccountId)
     transacoesDebitadas: Transactions[]
 
-    @ApiProperty({type: () => Transactions)
+    @ApiProperty({type: () => Transactions})
     @OneToMany(() => Transactions, (transactionId) => transactionId.creditedAccountId)
     transacoesCreditadas: Transactions[]
 }

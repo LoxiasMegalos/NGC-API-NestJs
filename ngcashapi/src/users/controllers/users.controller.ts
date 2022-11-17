@@ -28,8 +28,8 @@ export class UsersController{
         return this.service.getAll()
     }*/
 
-    @UseGuards(JwtAuthGuard)
-    @Post('auth/signin')
+    //@UseGuards(JwtAuthGuard)
+    @Post('/signin')
     @HttpCode(HttpStatus.CREATED)
     createUser(@Body() user : CadastroNovoUsuarioDTO): Promise<Users>{
         return this.service.create(user)
