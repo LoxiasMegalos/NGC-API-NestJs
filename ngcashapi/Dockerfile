@@ -1,6 +1,6 @@
 FROM node:12.19.0-alpine3.9 AS development
 
-WORKDIR /usr/src/app
+WORKDIR /ngcashapi/
 
 COPY package*.json ./
 
@@ -17,7 +17,7 @@ FROM node:12.19.0-alpine3.9 as production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /usr/src/app
+WORKDIR /ngcashapi/
 
 COPY package*.json ./
 
