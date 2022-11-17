@@ -5,7 +5,9 @@ import { DataDTO } from "../model/datadto";
 import { TransacaoDTO } from "../model/transacaodto";
 import { TransactionsService } from "../services/transactions.service";
 import { JwtAuthGuard } from "src/auth/shared/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Transactions')
 @Controller('/transactions')
 export class TransactionsController {
     constructor(

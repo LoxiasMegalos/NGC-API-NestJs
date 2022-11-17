@@ -8,7 +8,9 @@ import { Users } from "../entities/users.entity";
 import { CadastroNovoUsuarioDTO } from "../model/cadastronovousuariodto";
 import { UsersService } from "../services/users.service";
 import { JwtAuthGuard } from "src/auth/shared/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Users')
 @Controller('/users')
 export class UsersController{
     
@@ -17,13 +19,14 @@ export class UsersController{
         //private authService: AuthService
         private jwtService: JwtService
     ){}
-
+    
+    /*
     @UseGuards(JwtAuthGuard)
     @Get()
     @HttpCode(HttpStatus.OK)
     getAll(): Promise<Users[]> {
         return this.service.getAll()
-    }
+    }*/
 
     @UseGuards(JwtAuthGuard)
     @Post('auth/signin')

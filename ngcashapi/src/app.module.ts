@@ -21,7 +21,18 @@ import { UsersModule } from './users/modules/users.module';
     database: 'ngcash_db',
     entities: [Accounts, Users, Transactions],
     synchronize: true
-  }),
+  })/*
+  TypeOrmModule.forRoot({
+    type: 'postgres',
+    url: process.env.DATABASE_URL,
+    logging: false,
+    dropSchema: false,
+    ssl: {
+      rejectUnauthorized: false
+    },
+    autoLoadEntities: true,
+    synchronize: true
+  })*/,
   UsersModule,
   AccountsModule,
   TransactionsModule,
