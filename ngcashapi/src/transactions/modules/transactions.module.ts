@@ -11,7 +11,7 @@ import { TransactionsService } from "../services/transactions.service";
 @Module({
     imports:[TypeOrmModule.forFeature([Transactions, Users, Accounts]), JwtModule.register({
         secret: jwtConstants.secret,
-        signOptions: {expiresIn: '60s'}
+        signOptions: {expiresIn: '1d'}
       })],
     providers:[TransactionsService],
     controllers:[TransactionsController],

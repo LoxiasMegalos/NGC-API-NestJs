@@ -12,7 +12,7 @@ import { AccountsModule } from "src/accounts/modules/accounts.module";
 @Module({
     imports: [PassportModule, JwtModule.register({
         secret: jwtConstants.secret,
-        signOptions: {expiresIn: '60s'}
+        signOptions: {expiresIn: '1d'}
     }), UsersModule, AccountsModule],
     controllers: [AuthController],
     providers: [AuthService, LocalStrategy, JwtStrategy],

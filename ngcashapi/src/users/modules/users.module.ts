@@ -11,7 +11,7 @@ import { UsersService } from "../services/users.service";
 @Module({
     imports:[TypeOrmModule.forFeature([Users, Accounts]), JwtModule.register({
         secret: jwtConstants.secret,
-        signOptions: {expiresIn: '60s'}
+        signOptions: {expiresIn: '1d'}
       })],
     providers:[UsersService],
     controllers:[UsersController],
