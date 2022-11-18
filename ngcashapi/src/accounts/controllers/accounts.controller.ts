@@ -1,6 +1,5 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Controller } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { DeleteResult} from "typeorm";
 import { AccountsService } from "../services/accounts.service";
 
 @ApiTags('Accounts')

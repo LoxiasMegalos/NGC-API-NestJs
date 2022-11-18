@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Accounts } from './accounts/entities/accounts.entity';
@@ -12,16 +13,20 @@ import { Users } from './users/entities/users.entity';
 import { UsersModule } from './users/modules/users.module';
 
 @Module({
-  imports: [/*TypeOrmModule.forRoot({
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'gen123',
-    database: 'ngcash_db',
+  imports: [
+    ConfigModule.forRoot({isGlobal: true}),
+    TypeOrmModule.forRoot({
+    type: 'postgres',
+    url: process.env.DATABASE_URL,
+    autoLoadEntities: true,
+    //host: 'localhost',
+    //port: 5432,
+    //username: 'postgres',
+    //password: '@Cyrela2022',
+    //database: 'ngcash_db',
     entities: [Accounts, Users, Transactions],
     synchronize: true
-  })*/
+  })/*
   TypeOrmModule.forRoot({
     type: 'postgres',
     url: process.env.DATABASE_URL,
@@ -32,7 +37,7 @@ import { UsersModule } from './users/modules/users.module';
     },
     autoLoadEntities: true,
     synchronize: true
-  }),
+  })*/,
   UsersModule,
   AccountsModule,
   TransactionsModule,
